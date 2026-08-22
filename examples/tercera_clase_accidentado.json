@@ -1,0 +1,125 @@
+{
+  "nombre": "Tramo demo km 0+000 a 6+000",
+  "clase": "carretera_tercera_clase",
+  "grupo_coordinacion": 2,
+  "orografia": 3,
+  "velocidad_diseno": 40,
+  "ubicacion_via": "area_rural_accidentada_o_escarpada",
+  "zona_peralte": "zona_rural_accidentado_o_escarpado",
+  "n_carriles": 2,
+  "ancho_calzada_m": 6.0,
+  "B_eje_giro_m": 3.0,
+  "bombeo_pct": 2.5,
+  "vehiculo_diseno": "T3S3",
+  "pavimentada": true,
+  "pct_visibilidad_adelantamiento": 15,
+  "obstaculos": [
+    {
+      "id": "OB-1",
+      "progresiva": 520,
+      "tipo": "obstaculos_aislados_pilares_postes",
+      "distancia_m": 0.4
+    },
+    {
+      "id": "OB-2",
+      "progresiva": 1450,
+      "tipo": "obstaculos_continuos_muros_barreras",
+      "distancia_m": 0.7
+    }
+  ],
+  "alineamiento": [
+    {
+      "tipo": "tangente",
+      "id": "T-1",
+      "prog_ini": 0,
+      "prog_fin": 350
+    },
+    {
+      "tipo": "curva",
+      "id": "C-1",
+      "prog_ini": 350,
+      "prog_fin": 470,
+      "radio": 60,
+      "velocidad_especifica": 40,
+      "sentido": "D",
+      "peralte_pct": 8.0,
+      "pendiente_pct": -6.0,
+      "long_transicion_entrada_m": 40,
+      "sobreancho_m": 1.0,
+      "ancho_libre_m": 5.0
+    },
+    {
+      "tipo": "tangente",
+      "id": "T-2",
+      "prog_ini": 470,
+      "prog_fin": 505
+    },
+    {
+      "tipo": "curva",
+      "id": "C-2",
+      "prog_ini": 505,
+      "prog_fin": 610,
+      "radio": 38,
+      "velocidad_especifica": 40,
+      "sentido": "I",
+      "peralte_pct": 13.0,
+      "long_transicion_entrada_m": 20,
+      "sobreancho_m": 0.8
+    },
+    {
+      "tipo": "tangente",
+      "id": "T-3",
+      "prog_ini": 610,
+      "prog_fin": 1400
+    },
+    {
+      "tipo": "curva",
+      "id": "C-3",
+      "prog_ini": 1400,
+      "prog_fin": 1520,
+      "radio": 500,
+      "velocidad_especifica": 40,
+      "sentido": "I",
+      "peralte_pct": 4.0
+    },
+    {
+      "tipo": "curva",
+      "id": "C-4",
+      "prog_ini": 1520,
+      "prog_fin": 1600,
+      "radio": 120,
+      "velocidad_especifica": 40,
+      "sentido": "I",
+      "peralte_pct": 6.0,
+      "long_transicion_entrada_m": 35,
+      "sobreancho_m": 1.6
+    },
+    {
+      "tipo": "tangente",
+      "id": "T-4",
+      "prog_ini": 1600,
+      "prog_fin": 3000
+    },
+    {
+      "tipo": "curva",
+      "id": "CV-1",
+      "prog_ini": 3000,
+      "prog_fin": 3080,
+      "radio": 25,
+      "velocidad_especifica": 30,
+      "sentido": "D",
+      "peralte_pct": 8.0,
+      "long_transicion_entrada_m": 30,
+      "curva_de_vuelta": true,
+      "radio_interior_m": 7.0,
+      "radio_exterior_m": 15.0,
+      "maniobra": "C2"
+    },
+    {
+      "tipo": "tangente",
+      "id": "T-5",
+      "prog_ini": 3080,
+      "prog_fin": 6000
+    }
+  ]
+}

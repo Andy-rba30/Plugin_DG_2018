@@ -1,0 +1,41 @@
+{
+  "nombre": "Autopista primera clase - V=100 km/h",
+  "clase": "autopista_primera_clase",
+  "grupo_coordinacion": 1,
+  "orografia": 1,
+  "velocidad_diseno": 100,
+  "ubicacion_via": "area_rural_plano_u_ondulada",
+  "zona_peralte": "zona_rural_plano_ondulado_o_accidentado",
+  "n_carriles": 2,
+  "ancho_calzada_m": 7.2,
+  "B_eje_giro_m": 3.6,
+  "bombeo_pct": 2.5,
+  "vehiculo_diseno": "B2",
+  "pavimentada": true,
+  "alineamiento": [
+    {
+      "tipo": "tangente",
+      "id": "T-1",
+      "prog_ini": 0,
+      "prog_fin": 600
+    },
+    {
+      "tipo": "curva",
+      "id": "C-1",
+      "prog_ini": 600,
+      "prog_fin": 900,
+      "radio": 450,
+      "velocidad_especifica": 100,
+      "sentido": "D",
+      "peralte_pct": 6.0,
+      "long_transicion_entrada_m": 90,
+      "sobreancho_m": 0.3
+    },
+    {
+      "tipo": "tangente",
+      "id": "T-2",
+      "prog_ini": 900,
+      "prog_fin": 1600
+    }
+  ]
+}

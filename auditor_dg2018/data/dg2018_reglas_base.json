@@ -1,0 +1,2916 @@
+{
+  "metadata": {
+    "norma": "Manual de Carreteras: Diseño Geométrico DG-2018",
+    "entidad": "MTC - Dirección General de Caminos y Ferrocarriles, Perú",
+    "revision": "Revisada y Corregida a Enero de 2018",
+    "metodo_extraccion": "pdftotext -layout + verificación visual de páginas rasterizadas",
+    "nota": "Cada regla incluye 'fuente' con sección, tabla y página del manual para cita precisa. Los valores fueron extraídos del PDF oficial, no de memoria del modelo.",
+    "estado": "BASE INICIAL - tablas críticas de planta y perfil verificadas; sección transversal parcial; reglas de coordinación planta-perfil pendientes de codificar"
+  },
+  "clasificacion": {
+    "por_demanda": {
+      "fuente": {
+        "seccion": "101",
+        "paginas_manual": "12-13"
+      },
+      "clases": {
+        "autopista_primera_clase": {
+          "imda": "> 6000 veh/día"
+        },
+        "autopista_segunda_clase": {
+          "imda": "6000 - 4001 veh/día"
+        },
+        "carretera_primera_clase": {
+          "imda": "4000 - 2001 veh/día"
+        },
+        "carretera_segunda_clase": {
+          "imda": "2000 - 400 veh/día"
+        },
+        "carretera_tercera_clase": {
+          "imda": "< 400 veh/día"
+        }
+      }
+    },
+    "por_orografia": {
+      "fuente": {
+        "seccion": "102",
+        "pagina_manual": "14"
+      },
+      "tipos": {
+        "1": "Terreno plano",
+        "2": "Terreno ondulado",
+        "3": "Terreno accidentado",
+        "4": "Terreno escarpado"
+      }
+    }
+  },
+  "planta": {
+    "tramos_en_tangente": {
+      "fuente": {
+        "seccion": "302.03",
+        "tabla": "302.01",
+        "pagina_manual": "127"
+      },
+      "descripcion": "Longitudes mínimas admisibles y máximas deseables de tramos en tangente en función de la velocidad de diseño",
+      "formulas": {
+        "L_min_s": "1.39 * V  (m) - trazados en S: alineamiento recto entre curvas de sentido contrario",
+        "L_min_o": "2.78 * V  (m) - resto de casos: entre curvas del mismo sentido",
+        "L_max": "16.70 * V  (m) - longitud máxima deseable"
+      },
+      "valores_por_velocidad": {
+        "30": {
+          "L_min_s": 42,
+          "L_min_o": 84,
+          "L_max": 500
+        },
+        "40": {
+          "L_min_s": 56,
+          "L_min_o": 111,
+          "L_max": 668
+        },
+        "50": {
+          "L_min_s": 69,
+          "L_min_o": 139,
+          "L_max": 835
+        },
+        "60": {
+          "L_min_s": 83,
+          "L_min_o": 167,
+          "L_max": 1002
+        },
+        "70": {
+          "L_min_s": 97,
+          "L_min_o": 194,
+          "L_max": 1169
+        },
+        "80": {
+          "L_min_s": 111,
+          "L_min_o": 222,
+          "L_max": 1336
+        },
+        "90": {
+          "L_min_s": 125,
+          "L_min_o": 250,
+          "L_max": 1503
+        },
+        "100": {
+          "L_min_s": 139,
+          "L_min_o": 278,
+          "L_max": 1670
+        },
+        "110": {
+          "L_min_s": 153,
+          "L_min_o": 306,
+          "L_max": 1837
+        },
+        "120": {
+          "L_min_s": 167,
+          "L_min_o": 333,
+          "L_max": 2004
+        },
+        "130": {
+          "L_min_s": 180,
+          "L_min_o": 362,
+          "L_max": 2171
+        }
+      }
+    },
+    "radios_minimos": {
+      "fuente": {
+        "seccion": "302.04.02",
+        "tabla": "302.02",
+        "paginas_manual": "128-129"
+      },
+      "descripcion": "Radios mínimos (redondeados) y peraltes máximos según ubicación de la vía y velocidad de diseño. La norma indica evitar el empleo de curvas de radio mínimo, reservándolo para condiciones críticas.",
+      "por_ubicacion": {
+        "area_urbana": {
+          "peralte_max_pct": 4.0,
+          "radio_min_m": {
+            "30": 35,
+            "40": 60,
+            "50": 100,
+            "60": 150,
+            "70": 215,
+            "80": 280,
+            "90": 375,
+            "100": 495,
+            "110": 635,
+            "120": 875,
+            "130": 1110
+          }
+        },
+        "area_rural_con_peligro_de_hielo": {
+          "peralte_max_pct": 6.0,
+          "radio_min_m": {
+            "30": 30,
+            "40": 55,
+            "50": 90,
+            "60": 135,
+            "70": 195,
+            "80": 255,
+            "90": 335,
+            "100": 440,
+            "110": 560,
+            "120": 755,
+            "130": 950
+          }
+        },
+        "area_rural_plano_u_ondulada": {
+          "peralte_max_pct": 8.0,
+          "radio_min_m": {
+            "30": 30,
+            "40": 50,
+            "50": 85,
+            "60": 125,
+            "70": 175,
+            "80": 230,
+            "90": 305,
+            "100": 395,
+            "110": 500,
+            "120": 670,
+            "130": 835
+          }
+        },
+        "area_rural_accidentada_o_escarpada": {
+          "peralte_max_pct": 12.0,
+          "radio_min_m": {
+            "30": 25,
+            "40": 45,
+            "50": 70,
+            "60": 105,
+            "70": 150,
+            "80": 195,
+            "90": 255,
+            "100": 330,
+            "110": 415,
+            "120": 540,
+            "130": 665
+          }
+        }
+      }
+    },
+    "curvas_de_transicion": {
+      "fuente": {
+        "seccion": "302.05",
+        "tablas": [
+          "302.09",
+          "302.10",
+          "302.11 A",
+          "302.11 B"
+        ],
+        "paginas_manual": "138-146"
+      },
+      "parametro": "A^2 = R * L  (A = parámetro de la clotoide)",
+      "J_variacion_aceleracion": {
+        "fuente": {
+          "tabla": "302.09",
+          "pagina_manual": "139"
+        },
+        "J": {
+          "V<80": 0.5,
+          "80-100": 0.4,
+          "100-120": 0.4,
+          "V>120": 0.4
+        },
+        "Jmax": {
+          "V<80": 0.7,
+          "80-100": 0.8,
+          "100-120": 0.5,
+          "V>120": 0.4
+        },
+        "nota": "Jmáx solo en casos debidamente justificados"
+      },
+      "longitud_minima": {
+        "fuente": {
+          "tabla": "302.10",
+          "paginas_manual": "139-140"
+        },
+        "formula": "Lmin = (V/(46.656*J)) * (V^2/R - 1.27*p)",
+        "L_min_redondeada_por_velocidad_m": {
+          "30": 30,
+          "40": 40,
+          "50": 45,
+          "60": 50,
+          "70": 55,
+          "80": 75,
+          "90": 80,
+          "100": 85,
+          "110": 90,
+          "120": 75,
+          "130": 65
+        },
+        "piso_absoluto_m": 30,
+        "nota_norma": "En ningún caso se adoptarán longitudes de transición menores a 30 m."
+      },
+      "radios_sin_transicion_general": {
+        "fuente": {
+          "tabla": "302.11 A",
+          "pagina_manual": "146"
+        },
+        "descripcion": "Radios circulares límite que permiten prescindir de la curva de transición (Jmáx=0.4, 70% peralte al inicio).",
+        "R_limite_m": {
+          "30": 80,
+          "40": 150,
+          "50": 225,
+          "60": 325,
+          "70": 450,
+          "80": 600,
+          "90": 750,
+          "100": 900,
+          "110": 1200,
+          "120": 1500,
+          "130": 1800
+        }
+      },
+      "radios_sin_transicion_tercera_clase": {
+        "fuente": {
+          "tabla": "302.11 B",
+          "pagina_manual": "146"
+        },
+        "R_limite_m": {
+          "20": 24,
+          "30": 55,
+          "40": 95,
+          "50": 150,
+          "60": 210,
+          "70": 290,
+          "80": 380,
+          "90": 480
+        }
+      }
+    },
+    "sobreancho": {
+      "fuente": {
+        "seccion": "302.09",
+        "paginas_manual": "159-163"
+      },
+      "formula": "Sa = n*(R - sqrt(R^2 - L^2)) + V/(10*sqrt(R))   (n=nº carriles, L=distancia eje post.-frente, R=radio)",
+      "valor_minimo_m": 0.4,
+      "nota_norma": "Se considera apropiado un valor mínimo de 0.40 m de sobreancho para justificar su adopción.",
+      "holguras_teoricas_Tabla_302_19": {
+        "fuente": {
+          "tabla": "302.19",
+          "pagina_manual": "159"
+        },
+        "descripcion": "Holguras teóricas para vehículos comerciales de 2.60 m de ancho.",
+        "calzada_7.20m": {
+          "h1_recta": 0.5,
+          "h1_curva": 0.6,
+          "h2_recta": 0.4,
+          "h2_curva": 0.4,
+          "h2ext_recta": 0.4,
+          "h2ext_curva": 0.0
+        },
+        "calzada_6.00m": {
+          "h1_recta": 0.3,
+          "h1_curva": 0.45,
+          "h2_recta": 0.1,
+          "h2_curva": 0.05,
+          "h2ext_recta": 0.1,
+          "h2ext_curva": 0.0
+        }
+      },
+      "factores_reduccion_Tabla_302_20": {
+        "fuente": {
+          "tabla": "302.20",
+          "pagina_manual": "162"
+        },
+        "descripcion": "Factores de reducción del sobreancho para anchos de calzada en tangente de 7.20 m (asociado a V < 80 km/h). Se aplica solamente en el borde interior de la calzada.",
+        "factores": {
+          "25": 0.86,
+          "28": 0.84,
+          "30": 0.83,
+          "35": 0.81,
+          "37": 0.8,
+          "40": 0.79,
+          "45": 0.77,
+          "50": 0.75,
+          "55": 0.72,
+          "60": 0.7,
+          "70": 0.69,
+          "80": 0.63,
+          "90": 0.6,
+          "100": 0.59,
+          "120": 0.54,
+          "130": 0.52,
+          "150": 0.47,
+          "200": 0.38,
+          "250": 0.27,
+          "300": 0.18,
+          "350": 0.12,
+          "400": 0.07,
+          "450": 0.08,
+          "500": 0.05
+        },
+        "nota_norma": "El valor mínimo del sobreancho a aplicar es de 0.40 m",
+        "nota_radios_mayores": "Para radios mayores, asociados a velocidades mayores a 80 km/h, el valor del sobreancho será calculado para cada caso."
+      },
+      "restriccion_berma": "El sobreancho no podrá darse a costa de una disminución del ancho de la berma. (302.09.01)",
+      "ambito_formula": {
+        "texto_norma_302_20": "El valor del sobreancho, estará limitado para curvas de radio menor a lo indicado en la Tabla 302.20 (asociado a V ≤ 80 km/h) y se debe aplicar solamente en el borde interior de la calzada.",
+        "texto_norma_radios_mayores": "Para radios mayores, asociados a velocidades mayores a 80 km/h, el valor del sobreancho será calculado para cada caso.",
+        "interpretacion": "La formula general de 302.09.03 NO tiene techo de velocidad: es aplicable a todo el rango. Lo que queda restringido a V <= 80 km/h y calzada de 7.20 m es la Tabla 302.20 de FACTORES DE REDUCCION. 'Calculado para cada caso' significa que sobre 80 km/h se aplica la formula directa con el vehiculo de diseno del proyecto, sin factor de reduccion tabulado.",
+        "regla_implementada": "V <= 80 y calzada 7.20 m -> Sa_formula * factor(R) de Tabla 302.20. V > 80 (o calzada distinta) -> Sa_formula sin reduccion, declarando el vehiculo de diseno empleado."
+      },
+      "distribucion_en_transicion": {
+        "fuente": {
+          "seccion": "302.09.04",
+          "figuras": [
+            "302.19 (a)",
+            "302.19 (b)",
+            "302.19 (c)"
+          ],
+          "paginas_manual": "162-163"
+        },
+        "lineal": {
+          "formula": "San = (Sa / L) * Ln",
+          "vars": {
+            "San": "Sobreancho deseado en cualquier punto (m)",
+            "Sa": "Sobreancho calculado para la curva (m)",
+            "Ln": "Longitud a la cual se desea determinar el sobreancho (m)",
+            "L": "Longitud de transicion de peralte (m)"
+          },
+          "nota": "La reparticion del sobreancho se hace en forma lineal empleando la longitud de transicion de peralte."
+        },
+        "entre_arcos_circulares": {
+          "formula": "San = Sa1 + (Sa2 - Sa1) * (Ln / L)",
+          "vars": {
+            "Sa1": "Sobreancho del arco circular de menor curvatura (m)",
+            "Sa2": "Sobreancho del arco circular de mayor curvatura (m)",
+            "L": "Longitud del arco de transicion (m)"
+          },
+          "nota": "Aplica cuando un arco de espiral empalma dos arcos circulares de radio diferente y del mismo sentido."
+        }
+      },
+      "aplicacion_borde": "Se debe aplicar solamente en el borde interior de la calzada. En caso de junta central longitudinal o de demarcacion, la linea se debe fijar en toda la mitad de los bordes de la calzada ya ensanchada. (302.09.03)"
+    },
+    "verificacion_visibilidad": {
+      "fuente": {
+        "seccion": "302.10",
+        "tablas": [
+          "302.21",
+          "302.22"
+        ],
+        "paginas_manual": "164-168"
+      },
+      "ancho_libre_minimo": {
+        "fuente": {
+          "seccion": "302.10.03",
+          "pagina_manual": "167"
+        },
+        "formula": "amin = R * (1 - cos(28.65 * Dp / R))   [argumento en grados]",
+        "regla": "En el diseño de una curva horizontal, la línea de visibilidad deberá ser por lo menos igual a la distancia de parada correspondiente, y se mide a lo largo del eje central del carril interior de la curva.",
+        "nota_tercera_clase": "Para carreteras de Tercera Clase, ante obstrucciones (taludes de corte, paredes, barreras longitudinales en el lado interno de una curva), será preferible un ajuste en el diseño de la sección transversal o en el alineamiento, a la remoción de la obstrucción."
+      },
+      "distancias_minimas_obstaculos_Tabla_302_21": {
+        "fuente": {
+          "tabla": "302.21",
+          "pagina_manual": "166"
+        },
+        "descripcion": "Distancias mínimas a obstáculos fijos en tramos en tangente, medidos desde el borde exterior de la berma hasta el borde del objeto. Entre paréntesis: mínimo absoluto.",
+        "valores_m": {
+          "obstaculos_aislados_pilares_postes": {
+            "deseable": 1.5,
+            "minimo_absoluto": 0.6
+          },
+          "obstaculos_continuos_muros_barreras": {
+            "deseable": 0.6,
+            "minimo_absoluto": 0.3
+          },
+          "pared_muro_parapeto_sin_peatones": {
+            "deseable": 0.8,
+            "minimo_absoluto": 0.6
+          },
+          "pared_muro_parapeto_con_peatones": {
+            "deseable": 1.5,
+            "minimo_absoluto": 1.5
+          }
+        },
+        "nota_norma": "Los valores mínimos absolutos indicados en esta tabla son aceptables para carreteras hasta de Segunda Clase."
+      },
+      "zonas_adelantamiento_Tabla_302_22": {
+        "fuente": {
+          "seccion": "302.10.05",
+          "tabla": "302.22",
+          "pagina_manual": "168"
+        },
+        "descripcion": "Porcentaje del tramo con visibilidad adecuada para adelantar (tramos > 5 km).",
+        "porcentajes": {
+          "plano": {
+            "minimo": 45,
+            "deseable": 65
+          },
+          "ondulado": {
+            "minimo": 30,
+            "deseable": 50
+          },
+          "accidentado_o_escarpado": {
+            "minimo": 20,
+            "deseable": 30
+          }
+        },
+        "mapa_orografia": {
+          "1": "plano",
+          "2": "ondulado",
+          "3": "accidentado_o_escarpado",
+          "4": "accidentado_o_escarpado"
+        }
+      },
+      "zonas_no_adelantar": {
+        "fuente": {
+          "seccion": "302.10.04",
+          "pagina_manual": "167"
+        },
+        "regla": "Toda vez que no se disponga la visibilidad de adelantamiento mínima, la zona de adelantamiento prohibido deberá quedar señalizada mediante pintura en el pavimento y/o señalización vertical correspondiente."
+      }
+    },
+    "transicion_de_peralte": {
+      "fuente": {
+        "seccion": "302.08",
+        "tablas": [
+          "302.13"
+        ],
+        "paginas_manual": "152-158"
+      },
+      "ipmax_formula": "ipmax (%) = 1.8 - 0.01*V   (máxima inclinación de un borde respecto al eje)",
+      "longitud_minima_formula": "Lmin = ((pf - pi)/ipmax) * B   (pf,pi peraltes con signo; B = distancia borde a eje de giro)",
+      "tercera_clase_Tabla_302_13": {
+        "fuente": {
+          "tabla": "302.13",
+          "pagina_manual": "156"
+        },
+        "descripcion": "Longitud mínima de transición de peralte (m) por velocidad y valor de peralte; rotación de un carril.",
+        "peraltes_pct": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12
+        ],
+        "L_transicion_peralte_m": {
+          "20": [
+            9,
+            18,
+            27,
+            36,
+            45,
+            54
+          ],
+          "30": [
+            10,
+            19,
+            29,
+            38,
+            48,
+            58
+          ],
+          "40": [
+            10,
+            21,
+            31,
+            41,
+            51,
+            62
+          ],
+          "50": [
+            11,
+            22,
+            33,
+            44,
+            55,
+            66
+          ],
+          "60": [
+            12,
+            24,
+            36,
+            48,
+            60,
+            72
+          ],
+          "70": [
+            13,
+            26,
+            39,
+            52,
+            65,
+            79
+          ],
+          "80": [
+            14,
+            29,
+            43,
+            58,
+            72,
+            86
+          ],
+          "90": [
+            15,
+            31,
+            46,
+            61,
+            77,
+            92
+          ]
+        },
+        "L_transicion_bombeo_m": {
+          "20": 9,
+          "30": 10,
+          "40": 10,
+          "50": 11,
+          "60": 12,
+          "70": 13,
+          "80": 14,
+          "90": 15
+        }
+      },
+      "tablas_por_ancho_y_eje_giro": {
+        "fuente": {
+          "seccion": "302.08",
+          "tablas": [
+            "302.14",
+            "302.15",
+            "302.16",
+            "302.17",
+            "302.18"
+          ],
+          "paginas_manual": "152-154"
+        },
+        "descripcion": "Longitud de transición del peralte (m). Filas = peralte inicial (%), columnas = peralte final (%, con signo negativo en la norma).",
+        "302.14": {
+          "V_kmh": 30,
+          "ancho_calzada_m": 6.0,
+          "eje_giro_m": 6.0,
+          "L_m": {
+            "2": {
+              "2": 16,
+              "3": 20,
+              "4": 24,
+              "5": 28,
+              "6": 32,
+              "7": 36,
+              "8": 40,
+              "9": 44,
+              "10": 48,
+              "11": 52,
+              "12": 56
+            },
+            "3": {
+              "2": 20,
+              "3": 24,
+              "4": 28,
+              "5": 32,
+              "6": 36,
+              "7": 40,
+              "8": 44,
+              "9": 48,
+              "10": 52,
+              "11": 56,
+              "12": 60
+            },
+            "4": {
+              "2": 24,
+              "3": 28,
+              "4": 32,
+              "5": 36,
+              "6": 40,
+              "7": 44,
+              "8": 48,
+              "9": 52,
+              "10": 56,
+              "11": 60,
+              "12": 64
+            },
+            "5": {
+              "2": 28,
+              "3": 32,
+              "4": 36,
+              "5": 40,
+              "6": 44,
+              "7": 48,
+              "8": 52,
+              "9": 56,
+              "10": 60,
+              "11": 64,
+              "12": 68
+            },
+            "6": {
+              "2": 32,
+              "3": 36,
+              "4": 40,
+              "5": 44,
+              "6": 48,
+              "7": 52,
+              "8": 56,
+              "9": 60,
+              "10": 64,
+              "11": 68,
+              "12": 72
+            },
+            "7": {
+              "2": 36,
+              "3": 40,
+              "4": 44,
+              "5": 48,
+              "6": 52,
+              "7": 56,
+              "8": 60,
+              "9": 64,
+              "10": 68,
+              "11": 72,
+              "12": 76
+            },
+            "8": {
+              "2": 40,
+              "3": 44,
+              "4": 48,
+              "5": 52,
+              "6": 56,
+              "7": 60,
+              "8": 64,
+              "9": 68,
+              "10": 72,
+              "11": 76,
+              "12": 80
+            },
+            "9": {
+              "2": 44,
+              "3": 48,
+              "4": 52,
+              "5": 56,
+              "6": 60,
+              "7": 64,
+              "8": 68,
+              "9": 72,
+              "10": 76,
+              "11": 80,
+              "12": 84
+            },
+            "10": {
+              "2": 48,
+              "3": 52,
+              "4": 56,
+              "5": 60,
+              "6": 64,
+              "7": 68,
+              "8": 72,
+              "9": 76,
+              "10": 80,
+              "11": 84,
+              "12": 88
+            },
+            "11": {
+              "2": 52,
+              "3": 56,
+              "4": 60,
+              "5": 64,
+              "6": 68,
+              "7": 72,
+              "8": 76,
+              "9": 80,
+              "10": 84,
+              "11": 88,
+              "12": 92
+            },
+            "12": {
+              "2": 56,
+              "3": 60,
+              "4": 64,
+              "5": 68,
+              "6": 72,
+              "7": 76,
+              "8": 80,
+              "9": 84,
+              "10": 88,
+              "11": 92,
+              "12": 96
+            }
+          }
+        },
+        "302.15": {
+          "V_kmh": 60,
+          "ancho_calzada_m": 7.2,
+          "eje_giro_m": 7.2,
+          "L_m": {
+            "2": {
+              "2": 23,
+              "3": 29,
+              "4": 35,
+              "5": 41,
+              "6": 47,
+              "7": 53,
+              "8": 58,
+              "9": 64,
+              "10": 70,
+              "11": 76,
+              "12": 82
+            },
+            "3": {
+              "2": 29,
+              "3": 35,
+              "4": 41,
+              "5": 47,
+              "6": 53,
+              "7": 58,
+              "8": 64,
+              "9": 70,
+              "10": 76,
+              "11": 82,
+              "12": 88
+            },
+            "4": {
+              "2": 35,
+              "3": 41,
+              "4": 47,
+              "5": 53,
+              "6": 58,
+              "7": 64,
+              "8": 70,
+              "9": 76,
+              "10": 82,
+              "11": 88,
+              "12": 93
+            },
+            "5": {
+              "2": 41,
+              "3": 47,
+              "4": 53,
+              "5": 58,
+              "6": 64,
+              "7": 70,
+              "8": 76,
+              "9": 82,
+              "10": 88,
+              "11": 93,
+              "12": 99
+            },
+            "6": {
+              "2": 47,
+              "3": 53,
+              "4": 58,
+              "5": 64,
+              "6": 70,
+              "7": 76,
+              "8": 82,
+              "9": 88,
+              "10": 93,
+              "11": 99,
+              "12": 105
+            },
+            "7": {
+              "2": 53,
+              "3": 58,
+              "4": 64,
+              "5": 70,
+              "6": 76,
+              "7": 82,
+              "8": 88,
+              "9": 93,
+              "10": 99,
+              "11": 105,
+              "12": 111
+            },
+            "8": {
+              "2": 58,
+              "3": 64,
+              "4": 70,
+              "5": 76,
+              "6": 82,
+              "7": 88,
+              "8": 93,
+              "9": 99,
+              "10": 105,
+              "11": 111,
+              "12": 117
+            },
+            "9": {
+              "2": 64,
+              "3": 70,
+              "4": 76,
+              "5": 82,
+              "6": 88,
+              "7": 93,
+              "8": 99,
+              "9": 105,
+              "10": 111,
+              "11": 117,
+              "12": 123
+            },
+            "10": {
+              "2": 70,
+              "3": 76,
+              "4": 82,
+              "5": 88,
+              "6": 93,
+              "7": 99,
+              "8": 105,
+              "9": 111,
+              "10": 117,
+              "11": 123,
+              "12": 128
+            },
+            "11": {
+              "2": 76,
+              "3": 82,
+              "4": 88,
+              "5": 93,
+              "6": 99,
+              "7": 105,
+              "8": 111,
+              "9": 117,
+              "10": 123,
+              "11": 128,
+              "12": 134
+            },
+            "12": {
+              "2": 82,
+              "3": 88,
+              "4": 93,
+              "5": 99,
+              "6": 105,
+              "7": 111,
+              "8": 117,
+              "9": 123,
+              "10": 128,
+              "11": 134,
+              "12": 140
+            }
+          }
+        },
+        "302.16": {
+          "V_kmh": 60,
+          "ancho_calzada_m": 7.2,
+          "eje_giro_m": 3.6,
+          "L_m": {
+            "2": {
+              "2": 12,
+              "3": 15,
+              "4": 18,
+              "5": 20,
+              "6": 23,
+              "7": 26,
+              "8": 29,
+              "9": 32,
+              "10": 35,
+              "11": 38,
+              "12": 41
+            },
+            "3": {
+              "2": 15,
+              "3": 18,
+              "4": 20,
+              "5": 23,
+              "6": 26,
+              "7": 29,
+              "8": 32,
+              "9": 35,
+              "10": 38,
+              "11": 41,
+              "12": 44
+            },
+            "4": {
+              "2": 18,
+              "3": 20,
+              "4": 23,
+              "5": 26,
+              "6": 29,
+              "7": 32,
+              "8": 35,
+              "9": 38,
+              "10": 41,
+              "11": 44,
+              "12": 47
+            },
+            "5": {
+              "2": 20,
+              "3": 23,
+              "4": 26,
+              "5": 29,
+              "6": 32,
+              "7": 35,
+              "8": 38,
+              "9": 41,
+              "10": 44,
+              "11": 47,
+              "12": 50
+            },
+            "6": {
+              "2": 23,
+              "3": 26,
+              "4": 29,
+              "5": 32,
+              "6": 35,
+              "7": 38,
+              "8": 41,
+              "9": 44,
+              "10": 47,
+              "11": 50,
+              "12": 53
+            },
+            "7": {
+              "2": 26,
+              "3": 29,
+              "4": 32,
+              "5": 35,
+              "6": 38,
+              "7": 41,
+              "8": 44,
+              "9": 47,
+              "10": 50,
+              "11": 53,
+              "12": 55
+            },
+            "8": {
+              "2": 29,
+              "3": 32,
+              "4": 35,
+              "5": 38,
+              "6": 41,
+              "7": 44,
+              "8": 47,
+              "9": 50,
+              "10": 53,
+              "11": 55,
+              "12": 58
+            },
+            "9": {
+              "2": 32,
+              "3": 35,
+              "4": 38,
+              "5": 41,
+              "6": 44,
+              "7": 47,
+              "8": 50,
+              "9": 53,
+              "10": 55,
+              "11": 58,
+              "12": 61
+            },
+            "10": {
+              "2": 35,
+              "3": 38,
+              "4": 41,
+              "5": 44,
+              "6": 47,
+              "7": 50,
+              "8": 53,
+              "9": 55,
+              "10": 58,
+              "11": 61,
+              "12": 64
+            },
+            "11": {
+              "2": 38,
+              "3": 41,
+              "4": 44,
+              "5": 47,
+              "6": 50,
+              "7": 53,
+              "8": 55,
+              "9": 58,
+              "10": 61,
+              "11": 64,
+              "12": 67
+            },
+            "12": {
+              "2": 41,
+              "3": 44,
+              "4": 47,
+              "5": 50,
+              "6": 53,
+              "7": 55,
+              "8": 58,
+              "9": 61,
+              "10": 64,
+              "11": 67,
+              "12": 70
+            }
+          }
+        },
+        "302.17": {
+          "V_kmh": 80,
+          "ancho_calzada_m": 7.2,
+          "eje_giro_m": 7.2,
+          "L_m": {
+            "2": {
+              "2": 29,
+              "3": 36,
+              "4": 43,
+              "5": 50,
+              "6": 58,
+              "7": 65,
+              "8": 72,
+              "9": 79,
+              "10": 88,
+              "11": 94,
+              "12": 101
+            },
+            "3": {
+              "2": 36,
+              "3": 43,
+              "4": 50,
+              "5": 58,
+              "6": 65,
+              "7": 72,
+              "8": 79,
+              "9": 88,
+              "10": 94,
+              "11": 101,
+              "12": 108
+            },
+            "4": {
+              "2": 43,
+              "3": 50,
+              "4": 58,
+              "5": 65,
+              "6": 72,
+              "7": 79,
+              "8": 88,
+              "9": 94,
+              "10": 101,
+              "11": 108,
+              "12": 115
+            },
+            "5": {
+              "2": 50,
+              "3": 58,
+              "4": 65,
+              "5": 72,
+              "6": 79,
+              "7": 88,
+              "8": 94,
+              "9": 101,
+              "10": 108,
+              "11": 115,
+              "12": 122
+            },
+            "6": {
+              "2": 58,
+              "3": 65,
+              "4": 72,
+              "5": 79,
+              "6": 88,
+              "7": 94,
+              "8": 101,
+              "9": 108,
+              "10": 115,
+              "11": 122,
+              "12": 130
+            },
+            "7": {
+              "2": 65,
+              "3": 72,
+              "4": 79,
+              "5": 88,
+              "6": 94,
+              "7": 101,
+              "8": 108,
+              "9": 115,
+              "10": 122,
+              "11": 130,
+              "12": 137
+            },
+            "8": {
+              "2": 72,
+              "3": 79,
+              "4": 88,
+              "5": 94,
+              "6": 101,
+              "7": 108,
+              "8": 115,
+              "9": 122,
+              "10": 130,
+              "11": 137,
+              "12": 144
+            },
+            "9": {
+              "2": 79,
+              "3": 88,
+              "4": 94,
+              "5": 101,
+              "6": 108,
+              "7": 115,
+              "8": 122,
+              "9": 130,
+              "10": 137,
+              "11": 144,
+              "12": 151
+            },
+            "10": {
+              "2": 88,
+              "3": 94,
+              "4": 101,
+              "5": 108,
+              "6": 115,
+              "7": 122,
+              "8": 130,
+              "9": 137,
+              "10": 144,
+              "11": 151,
+              "12": 158
+            },
+            "11": {
+              "2": 94,
+              "3": 101,
+              "4": 108,
+              "5": 115,
+              "6": 122,
+              "7": 130,
+              "8": 137,
+              "9": 144,
+              "10": 151,
+              "11": 158,
+              "12": 166
+            },
+            "12": {
+              "2": 101,
+              "3": 108,
+              "4": 115,
+              "5": 122,
+              "6": 130,
+              "7": 137,
+              "8": 144,
+              "9": 151,
+              "10": 158,
+              "11": 166,
+              "12": 173
+            }
+          }
+        },
+        "302.18": {
+          "V_kmh": 100,
+          "ancho_calzada_m": 7.2,
+          "eje_giro_m": 7.2,
+          "L_m": {
+            "2": {
+              "2": 36,
+              "3": 45,
+              "4": 54,
+              "5": 63,
+              "6": 72,
+              "7": 81,
+              "8": 90,
+              "9": 99,
+              "10": 108,
+              "11": 117,
+              "12": 126
+            },
+            "3": {
+              "2": 45,
+              "3": 54,
+              "4": 63,
+              "5": 72,
+              "6": 81,
+              "7": 90,
+              "8": 99,
+              "9": 108,
+              "10": 117,
+              "11": 126,
+              "12": 135
+            },
+            "4": {
+              "2": 54,
+              "3": 63,
+              "4": 72,
+              "5": 81,
+              "6": 90,
+              "7": 99,
+              "8": 108,
+              "9": 117,
+              "10": 126,
+              "11": 135,
+              "12": 144
+            },
+            "5": {
+              "2": 63,
+              "3": 72,
+              "4": 81,
+              "5": 90,
+              "6": 99,
+              "7": 108,
+              "8": 117,
+              "9": 126,
+              "10": 135,
+              "11": 144,
+              "12": 153
+            },
+            "6": {
+              "2": 72,
+              "3": 81,
+              "4": 90,
+              "5": 99,
+              "6": 108,
+              "7": 117,
+              "8": 126,
+              "9": 135,
+              "10": 144,
+              "11": 153,
+              "12": 162
+            },
+            "7": {
+              "2": 81,
+              "3": 90,
+              "4": 99,
+              "5": 108,
+              "6": 117,
+              "7": 126,
+              "8": 135,
+              "9": 144,
+              "10": 153,
+              "11": 162,
+              "12": 171
+            },
+            "8": {
+              "2": 90,
+              "3": 90,
+              "4": 99,
+              "5": 108,
+              "6": 117,
+              "7": 126,
+              "8": 135,
+              "9": 144,
+              "10": 153,
+              "11": 162,
+              "12": 171
+            },
+            "9": {
+              "2": 90,
+              "3": 99,
+              "4": 108,
+              "5": 117,
+              "6": 126,
+              "7": 135,
+              "8": 144,
+              "9": 153,
+              "10": 162,
+              "11": 171,
+              "12": 189
+            },
+            "10": {
+              "2": 99,
+              "3": 99,
+              "4": 108,
+              "5": 117,
+              "6": 126,
+              "7": 135,
+              "8": 144,
+              "9": 153,
+              "10": 162,
+              "11": 171,
+              "12": 189
+            },
+            "11": {
+              "2": 99,
+              "3": 108,
+              "4": 117,
+              "5": 126,
+              "6": 135,
+              "7": 144,
+              "8": 153,
+              "9": 162,
+              "10": 171,
+              "11": 189,
+              "12": 207
+            },
+            "12": {
+              "2": 108,
+              "3": 117,
+              "4": 126,
+              "5": 135,
+              "6": 144,
+              "7": 153,
+              "8": 162,
+              "9": 171,
+              "10": 189,
+              "11": 207,
+              "12": 216
+            }
+          }
+        }
+      }
+    },
+    "coordinacion_curvas_circulares": {
+      "fuente": {
+        "seccion": "302.04.05",
+        "tablas": [
+          "302.07",
+          "302.08"
+        ],
+        "figuras": [
+          "302.06",
+          "302.07"
+        ],
+        "paginas_manual": "134-137"
+      },
+      "regla": "Para todo tipo de carretera, cuando se enlacen curvas circulares consecutivas sin tangente intermedia, así como mediante tangente de longitud menor o igual a 200 m, la relación de radios de las curvas circulares no sobrepasará los valores obtenidos a partir de las Figuras 302.06 y 302.07.",
+      "umbral_tangente_m": 200,
+      "grupos": {
+        "1": "Autopistas y carreteras de Primera Clase",
+        "2": "Carreteras de Segunda y Tercera Clase"
+      },
+      "regla_autopistas_recta_larga": {
+        "texto": "En autopistas, cuando se enlacen curvas circulares consecutivas con una recta intermedia de longitud superior a cuatrocientos metros (400 m), el radio de la curva circular de salida, en el sentido de la marcha, será igual o mayor que setecientos metros (700 m).",
+        "recta_umbral_m": 400,
+        "R_salida_min_m": 700,
+        "pagina_manual": "137"
+      },
+      "tabla_302_07_grupo_1": {
+        "tope_superior_m": 1720,
+        "valores": {
+          "250": {
+            "R_salida_max_m": 375,
+            "R_salida_min_m": 250
+          },
+          "260": {
+            "R_salida_max_m": 390,
+            "R_salida_min_m": 250
+          },
+          "270": {
+            "R_salida_max_m": 405,
+            "R_salida_min_m": 250
+          },
+          "280": {
+            "R_salida_max_m": 420,
+            "R_salida_min_m": 250
+          },
+          "290": {
+            "R_salida_max_m": 435,
+            "R_salida_min_m": 250
+          },
+          "300": {
+            "R_salida_max_m": 450,
+            "R_salida_min_m": 250
+          },
+          "310": {
+            "R_salida_max_m": 466,
+            "R_salida_min_m": 250
+          },
+          "320": {
+            "R_salida_max_m": 481,
+            "R_salida_min_m": 250
+          },
+          "330": {
+            "R_salida_max_m": 497,
+            "R_salida_min_m": 250
+          },
+          "340": {
+            "R_salida_max_m": 513,
+            "R_salida_min_m": 250
+          },
+          "350": {
+            "R_salida_max_m": 529,
+            "R_salida_min_m": 250
+          },
+          "360": {
+            "R_salida_max_m": 545,
+            "R_salida_min_m": 250
+          },
+          "370": {
+            "R_salida_max_m": 562,
+            "R_salida_min_m": 250
+          },
+          "380": {
+            "R_salida_max_m": 579,
+            "R_salida_min_m": 253
+          },
+          "390": {
+            "R_salida_max_m": 596,
+            "R_salida_min_m": 260
+          },
+          "400": {
+            "R_salida_max_m": 614,
+            "R_salida_min_m": 267
+          },
+          "410": {
+            "R_salida_max_m": 633,
+            "R_salida_min_m": 273
+          },
+          "420": {
+            "R_salida_max_m": 652,
+            "R_salida_min_m": 280
+          },
+          "430": {
+            "R_salida_max_m": 671,
+            "R_salida_min_m": 287
+          },
+          "440": {
+            "R_salida_max_m": 692,
+            "R_salida_min_m": 293
+          },
+          "450": {
+            "R_salida_max_m": 713,
+            "R_salida_min_m": 300
+          },
+          "460": {
+            "R_salida_max_m": 735,
+            "R_salida_min_m": 306
+          },
+          "470": {
+            "R_salida_max_m": 758,
+            "R_salida_min_m": 313
+          },
+          "480": {
+            "R_salida_max_m": 781,
+            "R_salida_min_m": 319
+          },
+          "490": {
+            "R_salida_max_m": 806,
+            "R_salida_min_m": 326
+          },
+          "500": {
+            "R_salida_max_m": 832,
+            "R_salida_min_m": 332
+          },
+          "510": {
+            "R_salida_max_m": 859,
+            "R_salida_min_m": 338
+          },
+          "520": {
+            "R_salida_max_m": 887,
+            "R_salida_min_m": 345
+          },
+          "530": {
+            "R_salida_max_m": 917,
+            "R_salida_min_m": 351
+          },
+          "540": {
+            "R_salida_max_m": 948,
+            "R_salida_min_m": 357
+          },
+          "550": {
+            "R_salida_max_m": 981,
+            "R_salida_min_m": 363
+          },
+          "560": {
+            "R_salida_max_m": 1015,
+            "R_salida_min_m": 369
+          },
+          "570": {
+            "R_salida_max_m": 1051,
+            "R_salida_min_m": 375
+          },
+          "580": {
+            "R_salida_max_m": 1089,
+            "R_salida_min_m": 381
+          },
+          "590": {
+            "R_salida_max_m": 1128,
+            "R_salida_min_m": 386
+          },
+          "600": {
+            "R_salida_max_m": 1170,
+            "R_salida_min_m": 392
+          },
+          "610": {
+            "R_salida_max_m": 1214,
+            "R_salida_min_m": 398
+          },
+          "620": {
+            "R_salida_max_m": 1260,
+            "R_salida_min_m": 403
+          },
+          "640": {
+            "R_salida_max_m": 1359,
+            "R_salida_min_m": 414
+          },
+          "660": {
+            "R_salida_max_m": 1468,
+            "R_salida_min_m": 424
+          },
+          "680": {
+            "R_salida_max_m": 1588,
+            "R_salida_min_m": 434
+          },
+          "700": {
+            "R_salida_max_m": 1720,
+            "R_salida_min_m": 444
+          },
+          "720": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 453
+          },
+          "740": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 462
+          },
+          "760": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 471
+          },
+          "780": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 479
+          },
+          "800": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 488
+          },
+          "820": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 495
+          },
+          "840": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 503
+          },
+          "860": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 510
+          },
+          "880": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 517
+          },
+          "900": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 524
+          },
+          "920": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 531
+          },
+          "940": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 537
+          },
+          "960": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 544
+          },
+          "980": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 550
+          },
+          "1000": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 558
+          },
+          "1020": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 561
+          },
+          "1040": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 567
+          },
+          "1060": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 572
+          },
+          "1080": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 578
+          },
+          "1100": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 583
+          },
+          "1120": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 588
+          },
+          "1140": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 593
+          },
+          "1160": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 598
+          },
+          "1180": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 602
+          },
+          "1200": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 607
+          },
+          "1220": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 611
+          },
+          "1240": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 616
+          },
+          "1260": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 620
+          },
+          "1280": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 624
+          },
+          "1300": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 628
+          },
+          "1320": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 632
+          },
+          "1340": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 636
+          },
+          "1360": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 640
+          },
+          "1380": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 644
+          },
+          "1400": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 648
+          },
+          "1420": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 651
+          },
+          "1440": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 655
+          },
+          "1460": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 659
+          },
+          "1480": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 662
+          },
+          "1500": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 666
+          },
+          "1520": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 669
+          },
+          "1540": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 672
+          },
+          "1560": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 676
+          },
+          "1580": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 679
+          },
+          "1600": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 682
+          },
+          "1620": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 685
+          },
+          "1640": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 688
+          },
+          "1660": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 691
+          },
+          "1680": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 694
+          },
+          "1700": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 697
+          },
+          "1720": {
+            "R_salida_max_m": ">1720",
+            "R_salida_min_m": 700
+          }
+        }
+      },
+      "tabla_302_08_grupo_2": {
+        "tope_superior_m": 670,
+        "valores": {
+          "40": {
+            "R_salida_max_m": 60,
+            "R_salida_min_m": 50
+          },
+          "50": {
+            "R_salida_max_m": 75,
+            "R_salida_min_m": 50
+          },
+          "60": {
+            "R_salida_max_m": 90,
+            "R_salida_min_m": 50
+          },
+          "70": {
+            "R_salida_max_m": 105,
+            "R_salida_min_m": 50
+          },
+          "80": {
+            "R_salida_max_m": 120,
+            "R_salida_min_m": 53
+          },
+          "90": {
+            "R_salida_max_m": 135,
+            "R_salida_min_m": 60
+          },
+          "100": {
+            "R_salida_max_m": 151,
+            "R_salida_min_m": 67
+          },
+          "110": {
+            "R_salida_max_m": 166,
+            "R_salida_min_m": 73
+          },
+          "120": {
+            "R_salida_max_m": 182,
+            "R_salida_min_m": 80
+          },
+          "130": {
+            "R_salida_max_m": 198,
+            "R_salida_min_m": 87
+          },
+          "140": {
+            "R_salida_max_m": 215,
+            "R_salida_min_m": 93
+          },
+          "150": {
+            "R_salida_max_m": 232,
+            "R_salida_min_m": 100
+          },
+          "160": {
+            "R_salida_max_m": 250,
+            "R_salida_min_m": 106
+          },
+          "170": {
+            "R_salida_max_m": 269,
+            "R_salida_min_m": 112
+          },
+          "180": {
+            "R_salida_max_m": 289,
+            "R_salida_min_m": 119
+          },
+          "190": {
+            "R_salida_max_m": 309,
+            "R_salida_min_m": 125
+          },
+          "200": {
+            "R_salida_max_m": 332,
+            "R_salida_min_m": 131
+          },
+          "210": {
+            "R_salida_max_m": 355,
+            "R_salida_min_m": 137
+          },
+          "220": {
+            "R_salida_max_m": 381,
+            "R_salida_min_m": 143
+          },
+          "230": {
+            "R_salida_max_m": 408,
+            "R_salida_min_m": 149
+          },
+          "240": {
+            "R_salida_max_m": 437,
+            "R_salida_min_m": 154
+          },
+          "250": {
+            "R_salida_max_m": 469,
+            "R_salida_min_m": 160
+          },
+          "260": {
+            "R_salida_max_m": 503,
+            "R_salida_min_m": 165
+          },
+          "270": {
+            "R_salida_max_m": 540,
+            "R_salida_min_m": 171
+          },
+          "280": {
+            "R_salida_max_m": 580,
+            "R_salida_min_m": 176
+          },
+          "290": {
+            "R_salida_max_m": 623,
+            "R_salida_min_m": 181
+          },
+          "300": {
+            "R_salida_max_m": 670,
+            "R_salida_min_m": 186
+          },
+          "310": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 190
+          },
+          "320": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 195
+          },
+          "330": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 199
+          },
+          "340": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 204
+          },
+          "350": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 208
+          },
+          "360": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 212
+          },
+          "370": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 216
+          },
+          "380": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 220
+          },
+          "390": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 223
+          },
+          "400": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 227
+          },
+          "410": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 231
+          },
+          "420": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 234
+          },
+          "430": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 238
+          },
+          "440": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 241
+          },
+          "450": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 244
+          },
+          "460": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 247
+          },
+          "470": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 250
+          },
+          "480": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 253
+          },
+          "490": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 256
+          },
+          "500": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 259
+          },
+          "510": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 262
+          },
+          "520": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 265
+          },
+          "530": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 267
+          },
+          "540": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 270
+          },
+          "550": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 273
+          },
+          "560": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 275
+          },
+          "570": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 278
+          },
+          "580": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 280
+          },
+          "590": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 282
+          },
+          "600": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 285
+          },
+          "610": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 287
+          },
+          "620": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 289
+          },
+          "640": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 294
+          },
+          "660": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 298
+          },
+          "680": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 302
+          },
+          "700": {
+            "R_salida_max_m": ">670",
+            "R_salida_min_m": 306
+          }
+        }
+      }
+    },
+    "curvas_compuestas": {
+      "fuente": {
+        "seccion": "302.06",
+        "paginas_manual": "146-149"
+      },
+      "regla_general": "Se evitará el empleo de curvas compuestas (especialmente en Tercera Clase).",
+      "policentrica_3_centros": "Radio de una curva no mayor a 1.5 veces el de la otra.",
+      "mismo_sentido_tangente_min_m": 400,
+      "nota_norma": "Se evitará el empleo de curvas del mismo sentido separadas por tangente menor a 400 m."
+    },
+    "friccion_transversal_maxima": {
+      "fuente": {
+        "seccion": "302.04.03",
+        "tabla": "302.03",
+        "pagina_manual": "131"
+      },
+      "f_max": {
+        "30": 0.17,
+        "40": 0.17,
+        "50": 0.16,
+        "60": 0.15,
+        "70": 0.14,
+        "80": 0.14,
+        "90": 0.13,
+        "100": 0.12,
+        "110": 0.11,
+        "120": 0.09,
+        "130": 0.08
+      },
+      "nota": "Tabla 302.03 tabula 30-60 km/h; valores 70-130 provienen de la columna f máx. de la Tabla 302.02."
+    },
+    "radios_minimos_por_peralte": {
+      "fuente": {
+        "seccion": "302.04.02",
+        "tabla": "302.04",
+        "pagina_manual": "131"
+      },
+      "descripcion": "Radio mínimo redondeado (m) según velocidad específica y peralte máximo adoptado.",
+      "R_min_m": {
+        "4.0": {
+          "30": 35,
+          "40": 60,
+          "50": 100,
+          "60": 150
+        },
+        "6.0": {
+          "30": 30,
+          "40": 55,
+          "50": 90,
+          "60": 135
+        },
+        "8.0": {
+          "30": 30,
+          "40": 50,
+          "50": 80,
+          "60": 125
+        },
+        "10.0": {
+          "30": 25,
+          "40": 45,
+          "50": 75,
+          "60": 115
+        },
+        "12.0": {
+          "30": 25,
+          "40": 45,
+          "50": 70,
+          "60": 105
+        }
+      }
+    },
+    "curvas_en_contraperalte": {
+      "fuente": {
+        "seccion": "302.04.04",
+        "tablas": [
+          "302.05",
+          "302.06"
+        ],
+        "paginas_manual": "132-133"
+      },
+      "criterio": "Bombeo considerado -2.5%; f aceptable = fmáx/2. R límite = V^2 / (127*(fmáx/2 - 0.025))",
+      "prohibicion": "En caminos de velocidad de diseño inferior a 60 km/h o cuya vía no cuente con pavimento, no se usarán contraperaltes.",
+      "R_limite_adoptado_m_Tabla_302_05": {
+        "60": 1000,
+        "70": 1000,
+        "80": 1200,
+        "90": 1600,
+        "100": 2000,
+        "110": 2800,
+        "120": 4000,
+        "130": 5500
+      },
+      "R_minimo_sectores_singulares_Tabla_302_06": {
+        "_nota": "Vs = velocidad señalizada, con Vs mínima = V - 10 km/h",
+        "p_-2.0pct": {
+          "60": 550,
+          "70": 750,
+          "80": 1100,
+          "90": 1500,
+          "100": 1900,
+          "110": 2600,
+          "120": 3500,
+          "130": 4700
+        },
+        "p_-2.5pct": {
+          "60": 600,
+          "70": 800,
+          "80": 1200,
+          "90": 1600,
+          "100": 2100,
+          "110": 3000,
+          "120": 4100,
+          "130": 5300
+        }
+      }
+    },
+    "curvas_de_vuelta": {
+      "fuente": {
+        "seccion": "302.07",
+        "tabla": "302.12",
+        "paginas_manual": "150-151"
+      },
+      "descripcion": "Radio exterior mínimo Re (m) correspondiente a un radio interior Ri adoptado, según maniobra prevista.",
+      "maniobras": {
+        "T2S2": "Camión semirremolque describe la curva; el resto del tránsito espera en la recta",
+        "C2": "Camión de 2 ejes simultáneo con un vehículo ligero",
+        "C2+C2": "Dos camiones de dos ejes simultáneamente"
+      },
+      "Re_min_m": {
+        "6.0": {
+          "T2S2": 14.0,
+          "C2": 15.75,
+          "C2+C2": 17.5
+        },
+        "7.0": {
+          "T2S2": 14.5,
+          "C2": 16.5,
+          "C2+C2": 18.25
+        },
+        "8.0": {
+          "T2S2": 15.25,
+          "C2": 17.25,
+          "C2+C2": 19.0
+        },
+        "10.0": {
+          "T2S2": 16.75,
+          "C2": 18.75,
+          "C2+C2": 20.5
+        },
+        "12.0": {
+          "T2S2": 18.25,
+          "C2": 20.5,
+          "C2+C2": 22.25
+        },
+        "15.0": {
+          "T2S2": 21.0,
+          "C2": 23.25,
+          "C2+C2": 24.75
+        },
+        "20.0": {
+          "T2S2": 26.0,
+          "C2": 28.0,
+          "C2+C2": 29.25
+        }
+      },
+      "Ri_minimo_normal_m": 8.0,
+      "Ri_minimo_absoluto_m": 6.0,
+      "nota_norma": "El radio interior de 8 m representa un mínimo normal. El radio interior de 6 m representa un mínimo absoluto y sólo podrá ser usado en forma excepcional.",
+      "nota_calzada": "La tabla considera un ancho de calzada de 6 m en tangente; si es superior, Re deberá aumentarse hasta que Re - Ri = Ancho Normal Calzada."
+    }
+  },
+  "perfil": {
+    "pendiente_minima": {
+      "fuente": {
+        "seccion": "303.03.01",
+        "pagina_manual": "170"
+      },
+      "valor_general_pct": 0.5,
+      "texto_norma": "Es conveniente proveer una pendiente mínima del orden de 0.5%, a fin de asegurar en todo punto de la calzada un drenaje de las aguas superficiales.",
+      "excepciones": [
+        {
+          "condicion": "bombeo 2% sin bermas y/o cunetas",
+          "pendiente_min_pct": 0.2
+        },
+        {
+          "condicion": "bombeo 2.5%",
+          "pendiente_min_pct": 0.0
+        }
+      ]
+    },
+    "pendiente_maxima": {
+      "fuente": {
+        "seccion": "303.03.02",
+        "tabla": "303.01",
+        "pagina_manual": "171"
+      },
+      "verificacion": "Cotejada contra imagen rasterizada de la página 171 del manual",
+      "estructura": "clase -> orografia (1-4) -> velocidad (km/h) -> pendiente máxima (%). Celda ausente = combinación no contemplada por la norma (requiere autorización del MTC, Nota 2 de la tabla).",
+      "valores": {
+        "autopista_primera_clase": {
+          "70": {
+            "3": 5.0,
+            "4": 5.0
+          },
+          "80": {
+            "1": 5.0,
+            "2": 5.0,
+            "3": 5.0,
+            "4": 5.0
+          },
+          "90": {
+            "1": 4.5,
+            "2": 4.5,
+            "3": 5.0
+          },
+          "100": {
+            "1": 4.5,
+            "2": 4.5,
+            "3": 4.5
+          },
+          "110": {
+            "1": 4.0,
+            "2": 4.0
+          },
+          "120": {
+            "1": 4.0,
+            "2": 4.0
+          },
+          "130": {
+            "1": 3.5
+          }
+        },
+        "autopista_segunda_clase": {
+          "60": {
+            "1": 6.0,
+            "2": 6.0,
+            "3": 7.0,
+            "4": 7.0
+          },
+          "70": {
+            "1": 6.0,
+            "2": 6.0,
+            "3": 6.0,
+            "4": 7.0
+          },
+          "80": {
+            "1": 5.0,
+            "2": 5.0,
+            "3": 6.0,
+            "4": 6.0
+          },
+          "90": {
+            "1": 5.0,
+            "2": 5.0,
+            "3": 6.0
+          },
+          "100": {
+            "1": 5.0,
+            "2": 5.0,
+            "3": 6.0
+          },
+          "110": {
+            "1": 4.0
+          },
+          "120": {
+            "1": 4.0
+          }
+        },
+        "carretera_primera_clase": {
+          "50": {
+            "3": 7.0,
+            "4": 7.0
+          },
+          "60": {
+            "1": 6.0,
+            "2": 6.0,
+            "3": 7.0,
+            "4": 7.0
+          },
+          "70": {
+            "1": 6.0,
+            "2": 6.0,
+            "3": 7.0,
+            "4": 7.0
+          },
+          "80": {
+            "1": 6.0,
+            "2": 6.0,
+            "3": 6.0
+          },
+          "90": {
+            "1": 5.0,
+            "2": 5.0
+          },
+          "100": {
+            "1": 5.0
+          }
+        },
+        "carretera_segunda_clase": {
+          "40": {
+            "4": 9.0
+          },
+          "50": {
+            "3": 8.0,
+            "4": 9.0
+          },
+          "60": {
+            "1": 6.0,
+            "2": 7.0,
+            "3": 8.0,
+            "4": 9.0
+          },
+          "70": {
+            "1": 6.0,
+            "2": 6.0,
+            "3": 7.0
+          },
+          "80": {
+            "1": 6.0,
+            "2": 6.0
+          },
+          "90": {
+            "1": 6.0
+          },
+          "100": {
+            "1": 6.0
+          }
+        },
+        "carretera_tercera_clase": {
+          "30": {
+            "3": 10.0,
+            "4": 10.0
+          },
+          "40": {
+            "1": 8.0,
+            "2": 9.0,
+            "3": 10.0
+          },
+          "50": {
+            "1": 8.0,
+            "2": 8.0,
+            "3": 8.0
+          },
+          "60": {
+            "1": 8.0,
+            "2": 8.0
+          },
+          "70": {
+            "1": 7.0,
+            "2": 7.0
+          },
+          "80": {
+            "1": 7.0,
+            "2": 7.0
+          },
+          "90": {
+            "1": 6.0,
+            "2": 6.0
+          }
+        }
+      },
+      "notas_tabla": [
+        "1) En caso que se desee pasar de carreteras de Primera o Segunda Clase, a una autopista, las características de éstas se deberán adecuar al orden superior inmediato.",
+        "2) De presentarse casos no contemplados en la presente tabla, su utilización previo sustento técnico, será autorizada por el órgano competente del MTC."
+      ]
+    },
+    "pendiente_maxima_excepcional": {
+      "fuente": {
+        "seccion": "303.03.03",
+        "pagina_manual": "172"
+      },
+      "incremento_max_pct": 1.0,
+      "texto_norma": "Excepcionalmente, el valor de la pendiente máxima podrá incrementarse hasta en 1%, para todos los casos. Deberá justificarse técnica y económicamente la necesidad de dicho incremento."
+    },
+    "curvas_verticales_convexas_k": {
+      "fuente": {
+        "seccion": "303.04.03",
+        "tabla": "302.02 (K por Dp y Da: Figuras 303.06/303.07)",
+        "tabla_tercera_clase": "303.02",
+        "pagina_manual": "179"
+      },
+      "aplicacion": "Carreteras de Tercera Clase. L = K * A, donde A = diferencia algebraica de pendientes (%)",
+      "por_visibilidad_de_parada": {
+        "20": {
+          "Dp_m": 20,
+          "K": 0.6
+        },
+        "30": {
+          "Dp_m": 35,
+          "K": 1.9
+        },
+        "40": {
+          "Dp_m": 50,
+          "K": 3.8
+        },
+        "50": {
+          "Dp_m": 65,
+          "K": 6.4
+        },
+        "60": {
+          "Dp_m": 85,
+          "K": 11
+        },
+        "70": {
+          "Dp_m": 105,
+          "K": 17
+        },
+        "80": {
+          "Dp_m": 130,
+          "K": 26
+        },
+        "90": {
+          "Dp_m": 160,
+          "K": 39
+        }
+      },
+      "por_visibilidad_de_paso": {
+        "30": {
+          "Da_m": 200,
+          "K": 46
+        },
+        "40": {
+          "Da_m": 270,
+          "K": 84
+        },
+        "50": {
+          "Da_m": 345,
+          "K": 138
+        },
+        "60": {
+          "Da_m": 410,
+          "K": 195
+        },
+        "70": {
+          "Da_m": 485,
+          "K": 272
+        },
+        "80": {
+          "Da_m": 540,
+          "K": 338
+        },
+        "90": {
+          "Da_m": 615,
+          "K": 438
+        }
+      }
+    },
+    "curvas_verticales_concavas_k": {
+      "fuente": {
+        "seccion": "303.04.04",
+        "tabla": "303.03",
+        "pagina_manual": "182"
+      },
+      "aplicacion": "Carreteras de Tercera Clase. L = K * A. Fórmulas generales: D<L: L = A*D²/(120+3.5D); D>L: L = 2D - (120+3.5D)/A, con D = Dp",
+      "valores": {
+        "20": {
+          "Dp_m": 20,
+          "K": 3
+        },
+        "30": {
+          "Dp_m": 35,
+          "K": 6
+        },
+        "40": {
+          "Dp_m": 50,
+          "K": 9
+        },
+        "50": {
+          "Dp_m": 65,
+          "K": 13
+        },
+        "60": {
+          "Dp_m": 85,
+          "K": 18
+        },
+        "70": {
+          "Dp_m": 105,
+          "K": 23
+        },
+        "80": {
+          "Dp_m": 130,
+          "K": 30
+        },
+        "90": {
+          "Dp_m": 160,
+          "K": 38
+        }
+      }
+    }
+  },
+  "seccion_transversal": {
+    "bombeo": {
+      "fuente": {
+        "seccion": "304.05",
+        "tabla": "304.03",
+        "pagina_manual": "195"
+      },
+      "valores_pct": {
+        "pavimento_asfaltico_o_concreto_portland": {
+          "precipitacion_menor_500mm": 2.0,
+          "precipitacion_mayor_500mm": 2.5
+        },
+        "tratamiento_superficial": {
+          "precipitacion_menor_500mm": 2.5,
+          "precipitacion_mayor_500mm": "2.5-3.0"
+        },
+        "afirmado": {
+          "precipitacion_menor_500mm": "3.0-3.5",
+          "precipitacion_mayor_500mm": "3.0-4.0"
+        }
+      }
+    },
+    "peralte_maximo": {
+      "fuente": {
+        "seccion": "304.06.01",
+        "tabla": "304.05",
+        "pagina_manual": "196"
+      },
+      "valores": {
+        "atravesamiento_zonas_urbanas": {
+          "absoluto_pct": 6.0,
+          "normal_pct": 4.0,
+          "figura": "302.02"
+        },
+        "zona_rural_plano_ondulado_o_accidentado": {
+          "absoluto_pct": 8.0,
+          "normal_pct": 6.0,
+          "figura": "302.03"
+        },
+        "zona_rural_accidentado_o_escarpado": {
+          "absoluto_pct": 12.0,
+          "normal_pct": 8.0,
+          "figura": "302.04"
+        },
+        "zona_rural_con_peligro_de_hielo": {
+          "absoluto_pct": 8.0,
+          "normal_pct": 6.0,
+          "figura": "302.05"
+        }
+      }
+    },
+    "ancho_calzada": {
+      "fuente": {
+        "seccion": "304.03.01",
+        "tabla": "304.01",
+        "paginas_manual": "190-191"
+      },
+      "estado": "PENDIENTE_EXTRACCION"
+    },
+    "ancho_bermas": {
+      "fuente": {
+        "seccion": "304.04.01",
+        "tabla": "304.02",
+        "paginas_manual": "192-194"
+      },
+      "estado": "PENDIENTE_EXTRACCION"
+    },
+    "taludes": {
+      "fuente": {
+        "seccion": "304.10",
+        "tablas": [
+          "304.10",
+          "304.11"
+        ],
+        "paginas_manual": "202-207"
+      },
+      "estado": "PENDIENTE_EXTRACCION"
+    }
+  },
+  "coordinacion_planta_perfil": {
+    "descripcion": "Reglas de sincronía entre los tres diseños. Se evalúan POR PROGRESIVA, cruzando los datos de planta, perfil y transversal en cada estación.",
+    "reglas": [
+      {
+        "id": "SINC-01",
+        "nombre": "Transición de peralte coordinada con la curva en planta",
+        "fuente": {
+          "seccion": "302.08",
+          "paginas_manual": "152-158"
+        },
+        "estado": "PENDIENTE_EXTRACCION",
+        "descripcion": "La longitud y ubicación de la transición del peralte (y del bombeo al peralte, 304.06.02) debe ser compatible con la progresiva de inicio/fin de la curva horizontal y su curva de transición."
+      },
+      {
+        "id": "SINC-02",
+        "nombre": "Visibilidad de parada en curva horizontal con pendiente",
+        "fuente": {
+          "seccion": "205.02 y 302.10.01/302.10.02",
+          "paginas_manual": "103-106, 164-166"
+        },
+        "estado": "PENDIENTE_EXTRACCION",
+        "descripcion": "La Dp se ajusta por pendiente (fórmula con ±i). Curva horizontal de radio mínimo + pendiente fuerte + obstáculo lateral (banqueta de visibilidad, 302.10.03) debe verificarse en conjunto."
+      },
+      {
+        "id": "SINC-03",
+        "nombre": "Coincidencia de curvas verticales y horizontales",
+        "fuente": {
+          "seccion": "302.04.05 y consideraciones de diseño 302.02/303.02",
+          "paginas_manual": "125-126, 134-137, 169"
+        },
+        "estado": "PENDIENTE_EXTRACCION",
+        "descripcion": "Evitar que el inicio/fin de curvas verticales caiga en zonas críticas de la curva horizontal; coordinación de elementos por progresiva."
+      },
+      {
+        "id": "SINC-04",
+        "nombre": "Sobreancho desarrollado dentro de la transición",
+        "fuente": {
+          "seccion": "302.09.02 y 302.09.04",
+          "paginas_manual": "160-163"
+        },
+        "estado": "PENDIENTE_EXTRACCION",
+        "descripcion": "El desarrollo del sobreancho debe completarse en la longitud de transición, coordinado con la clotoide y la transición de peralte."
+      }
+    ]
+  },
+  "visibilidad": {
+    "distancia_parada": {
+      "fuente": {
+        "seccion": "205.02",
+        "tabla": "205.01 / 205.01-A",
+        "paginas_manual": "103-105"
+      },
+      "verificacion": "205.01-A cotejada visualmente (pág 104-105)",
+      "formula_pendiente_nula": "Dp = 0.278*V*tp + 0.039*V^2/a  (tp=2.5 s recomendado)",
+      "formula_con_pendiente": "Dp = 0.278*V*tp + V^2/(254*((a/9.81) ± i))   (+i subida, -i bajada)",
+      "obstaculo": "altura >= 0.15 m; ojos del conductor a 1.07 m sobre la rasante",
+      "Dp_pendiente_0_redondeada_m": {
+        "20": 20,
+        "30": 35,
+        "40": 50,
+        "50": 65,
+        "60": 85,
+        "70": 105,
+        "80": 130,
+        "90": 160,
+        "100": 185,
+        "110": 220,
+        "120": 250,
+        "130": 285
+      },
+      "Dp_con_pendiente_m": {
+        "_cols": [
+          "bajada_3",
+          "bajada_6",
+          "bajada_9",
+          "subida_3",
+          "subida_6",
+          "subida_9"
+        ],
+        "20": [
+          20,
+          20,
+          20,
+          19,
+          18,
+          18
+        ],
+        "30": [
+          35,
+          35,
+          35,
+          31,
+          30,
+          29
+        ],
+        "40": [
+          50,
+          50,
+          53,
+          45,
+          44,
+          43
+        ],
+        "50": [
+          66,
+          70,
+          74,
+          61,
+          59,
+          58
+        ],
+        "60": [
+          87,
+          92,
+          97,
+          80,
+          77,
+          75
+        ],
+        "70": [
+          110,
+          116,
+          124,
+          100,
+          97,
+          93
+        ],
+        "80": [
+          136,
+          144,
+          154,
+          123,
+          118,
+          114
+        ],
+        "90": [
+          164,
+          174,
+          187,
+          148,
+          141,
+          136
+        ],
+        "100": [
+          194,
+          207,
+          223,
+          174,
+          167,
+          160
+        ],
+        "110": [
+          227,
+          243,
+          262,
+          203,
+          194,
+          186
+        ],
+        "120": [
+          283,
+          293,
+          304,
+          234,
+          223,
+          214
+        ],
+        "130": [
+          310,
+          338,
+          375,
+          267,
+          252,
+          238
+        ]
+      }
+    }
+  },
+  "vehiculos_de_diseno": {
+    "fuente": {
+      "seccion": "202.02/202.03",
+      "tabla": "202.01",
+      "pagina_manual": "27"
+    },
+    "verificacion": "Cotejada visualmente contra pagina rasterizada. OJO: la extraccion de texto plano daba 15.80/17.30 para el VL; los valores correctos son 5.80/7.30.",
+    "referencia_legal": "Reglamento Nacional de Vehiculos (D.S. N° 058-2003-MTC o el que se encuentre vigente)",
+    "nota_L": "La norma no tabula directamente 'L' (distancia entre eje posterior y parte frontal) usado en la formula de sobreancho. Aqui se DERIVA como L = vuelo_delantero + separacion_ejes (suma de tramos). Para vehiculos articulados esta derivacion es conservadora; el proyectista puede sustituirla.",
+    "vehiculos": {
+      "VL": {
+        "nombre": "Vehiculo ligero",
+        "alto": 1.3,
+        "ancho": 2.1,
+        "vuelo_lateral": 0.15,
+        "ancho_ejes": 1.8,
+        "largo_total": 5.8,
+        "vuelo_delantero": 0.9,
+        "separacion_ejes": [
+          3.4
+        ],
+        "vuelo_trasero": 1.5,
+        "radio_min_rueda_ext": 7.3
+      },
+      "B2": {
+        "nombre": "Omnibus de dos ejes",
+        "alto": 4.1,
+        "ancho": 2.6,
+        "vuelo_lateral": 0.0,
+        "ancho_ejes": 2.6,
+        "largo_total": 13.2,
+        "vuelo_delantero": 2.3,
+        "separacion_ejes": [
+          8.25
+        ],
+        "vuelo_trasero": 2.65,
+        "radio_min_rueda_ext": 12.8
+      },
+      "B3-1": {
+        "nombre": "Omnibus de tres ejes",
+        "alto": 4.1,
+        "ancho": 2.6,
+        "vuelo_lateral": 0.0,
+        "ancho_ejes": 2.6,
+        "largo_total": 14.0,
+        "vuelo_delantero": 2.4,
+        "separacion_ejes": [
+          7.55
+        ],
+        "vuelo_trasero": 4.05,
+        "radio_min_rueda_ext": 13.7
+      },
+      "B4-1": {
+        "nombre": "Omnibus de cuatro ejes",
+        "alto": 4.1,
+        "ancho": 2.6,
+        "vuelo_lateral": 0.0,
+        "ancho_ejes": 2.6,
+        "largo_total": 15.0,
+        "vuelo_delantero": 3.2,
+        "separacion_ejes": [
+          7.75
+        ],
+        "vuelo_trasero": 4.05,
+        "radio_min_rueda_ext": 13.7
+      },
+      "BA-1": {
+        "nombre": "Omnibus articulado",
+        "alto": 4.1,
+        "ancho": 2.6,
+        "vuelo_lateral": 0.0,
+        "ancho_ejes": 2.6,
+        "largo_total": 18.3,
+        "vuelo_delantero": 2.6,
+        "separacion_ejes": [
+          6.7,
+          1.9,
+          4.0
+        ],
+        "vuelo_trasero": 3.1,
+        "radio_min_rueda_ext": 12.8
+      },
+      "T2S1": {
+        "nombre": "Semirremolque simple",
+        "alto": 4.1,
+        "ancho": 2.6,
+        "vuelo_lateral": 0.0,
+        "ancho_ejes": 2.6,
+        "largo_total": 20.5,
+        "vuelo_delantero": 1.2,
+        "separacion_ejes": [
+          6.0,
+          12.5
+        ],
+        "vuelo_trasero": 0.8,
+        "radio_min_rueda_ext": 13.7
+      },
+      "C2R1": {
+        "nombre": "Remolque simple",
+        "alto": 4.1,
+        "ancho": 2.6,
+        "vuelo_lateral": 0.0,
+        "ancho_ejes": 2.6,
+        "largo_total": 23.0,
+        "vuelo_delantero": 1.2,
+        "separacion_ejes": [
+          10.3,
+          0.8,
+          2.15,
+          7.75
+        ],
+        "vuelo_trasero": 0.8,
+        "radio_min_rueda_ext": 12.8
+      },
+      "T3S2S2": {
+        "nombre": "Semirremolque doble",
+        "alto": 4.1,
+        "ancho": 2.6,
+        "vuelo_lateral": 0.0,
+        "ancho_ejes": 2.6,
+        "largo_total": 23.0,
+        "vuelo_delantero": 1.2,
+        "separacion_ejes": [
+          5.4,
+          6.8,
+          1.4,
+          6.8
+        ],
+        "vuelo_trasero": 1.4,
+        "radio_min_rueda_ext": 13.7
+      },
+      "T3S2S1S2": {
+        "nombre": "Semirremolque remolque",
+        "alto": 4.1,
+        "ancho": 2.6,
+        "vuelo_lateral": 0.0,
+        "ancho_ejes": 2.6,
+        "largo_total": 23.0,
+        "vuelo_delantero": 1.2,
+        "separacion_ejes": [
+          5.45,
+          5.7,
+          1.4,
+          2.15,
+          5.7
+        ],
+        "vuelo_trasero": 1.4,
+        "radio_min_rueda_ext": 13.7
+      },
+      "T3S3": {
+        "nombre": "Semirremolque simple T3S3",
+        "alto": 4.1,
+        "ancho": 2.6,
+        "vuelo_lateral": 0.0,
+        "ancho_ejes": 2.6,
+        "largo_total": 20.5,
+        "vuelo_delantero": 1.2,
+        "separacion_ejes": [
+          5.4,
+          11.9
+        ],
+        "vuelo_trasero": 2.0,
+        "radio_min_rueda_ext": null
+      }
+    },
+    "alturas_visibilidad": {
+      "fuente": {
+        "seccion": "202.03",
+        "pagina_manual": "25"
+      },
+      "h_faros_delanteros": 0.6,
+      "h3_ojos_conductor_camion_bus": 2.5,
+      "h4_luces_traseras_auto": 0.45,
+      "h6_techo_vehiculo_pesado": 4.1
+    }
+  }
+}

@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auditor-dg2018"
+version = "0.1.0"
+description = "Auditor de diseno geometrico vial segun el Manual de Carreteras DG-2018 (MTC, Peru)"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+keywords = ["carreteras", "diseno-geometrico", "DG-2018", "MTC", "Peru", "ingenieria-vial"]
+
+[project.scripts]
+auditor-dg2018 = "auditor_dg2018.cli:main"
+
+[tool.setuptools]
+packages = ["auditor_dg2018"]
+
+[tool.setuptools.package-data]
+auditor_dg2018 = ["data/*.json"]
