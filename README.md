@@ -195,3 +195,32 @@ y Ferrocarriles. *Manual de Carreteras: Diseño Geométrico DG-2018*. Revisada y
 corregida a enero de 2018.
 
 El PDF de la norma **no se incluye en este repositorio**.
+
+## Calculadora (`calculadora.py`)
+
+Utilidad independiente en la raíz del repositorio, sin dependencias externas.
+Evalúa expresiones aritméticas de forma segura (analiza el árbol sintáctico con
+`ast`; nunca llama a `eval`), con funciones matemáticas, constantes, historial,
+memoria (M+, M-, MR, MC) y la variable `ans` con el último resultado.
+
+```bash
+python calculadora.py                     # modo interactivo (escriba 'ayuda')
+python calculadora.py "(2 + 3) * 4"       # -> 20
+python calculadora.py "sqrt(2)" -p 4      # -> 1.4142
+python calculadora.py -- "-5 + 3"         # -> -2  ('--' si empieza por un signo menos)
+python -m pytest tests/test_calculadora.py
+```
+
+Como librería:
+
+```python
+from calculadora import Calculadora, evaluar
+
+evaluar("2 ^ 10 + factorial(5)")          # 1144
+
+c = Calculadora()
+c.evaluar("10 / 4")                       # 2.5
+c.evaluar("ans * 2")                      # 5.0
+c.raiz(27, 3)                             # 3.0
+c.historial                               # [('10 / 4', 2.5), ('ans * 2', 5.0), ('raiz(27, 3)', 3.0)]
+```
